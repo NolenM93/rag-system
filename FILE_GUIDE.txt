@@ -1,0 +1,365 @@
+═══════════════════════════════════════════════════════════════════════════
+                    📚 RAG SYSTEM - FILE GUIDE 📚
+═══════════════════════════════════════════════════════════════════════════
+
+START HERE 👇
+═══════════════════════════════════════════════════════════════════════════
+
+1. 📄 QUICK_REFERENCE.txt
+   ↳ One-page cheat sheet with all commands and parameters
+   ↳ Read this first for a quick overview
+
+2. 📄 PROJECT_SUMMARY.md  
+   ↳ Comprehensive overview of what's been built
+   ↳ Read this for complete project status
+
+3. 📄 SETUP_GUIDE.md
+   ↳ Step-by-step instructions for running the system
+   ↳ Read this before first use
+
+═══════════════════════════════════════════════════════════════════════════
+CORE APPLICATION FILES
+═══════════════════════════════════════════════════════════════════════════
+
+🔧 text_extractor.py
+   Purpose: Extract text from web pages (Wikipedia) or PDFs
+   Usage:   python text_extractor.py
+   Output:  Selected_Document.txt
+   
+   What it does:
+   • Fetches Wikipedia article on Artificial Intelligence
+   • Parses HTML with BeautifulSoup
+   • Extracts clean paragraph text
+   • Saves to Selected_Document.txt
+   
+   Customize: Change URL on line 60 for different articles
+
+🚀 RAG_app.py  ⭐ MAIN FILE ⭐
+   Purpose: Complete RAG pipeline with re-ranking
+   Usage:   python RAG_app.py
+   
+   Components implemented:
+   ✅ Logging suppression (lines 18-21)
+   ✅ API credentials loading (lines 26-27)
+   ✅ Parameters (lines 32-41)
+   ✅ Document loading (lines 46-47)
+   ✅ Text chunking (lines 52-60)
+   ✅ Embedding generation (lines 65-68)
+   ✅ FAISS index creation (lines 71-78)
+   ✅ Retrieval function (lines 84-101)
+   ✅ Cross-encoder re-ranking (lines 106-157)
+   ✅ ChatGPT Q&A (lines 162-197)
+   ✅ Interactive loop (lines 203-218)
+   
+   Key parameters to experiment with:
+   • chunk_size (line 34): Default 500
+   • chunk_overlap (line 35): Default 50
+   • top_k (line 37): Initial retrieval count (20)
+   • top_m (line 41): Final context chunks (8)
+
+📊 Selected_Document.txt
+   Purpose: Source document for RAG system
+   Content: Wikipedia article on Artificial Intelligence
+   Size:    88,404 bytes (181 paragraphs)
+   
+   Topics covered:
+   • AI definition and history
+   • Technical approaches (neural networks, machine learning)
+   • Applications (search, autonomous vehicles, generative AI)
+   • Ethical concerns and future challenges
+
+═══════════════════════════════════════════════════════════════════════════
+DOCUMENTATION FILES
+═══════════════════════════════════════════════════════════════════════════
+
+📖 README.md  ⭐ MAIN DELIVERABLE ⭐
+   Purpose: Complete project documentation and reflection
+   
+   Sections:
+   ✅ Overview and architecture
+   ✅ Project structure
+   ✅ Setup instructions
+   ✅ Selected document description (fully written)
+   📝 Experimentation results (templates ready for your data)
+   📝 Chunk size/overlap analysis (framework provided)
+   ✅ 5 Deep-dive questions with full answers
+   ✅ System architecture diagram
+   ✅ Parameters reference table
+   
+   What you need to add:
+   • Actual answers from running experiments
+   • Observations from different chunk sizes
+   • Your analysis and recommendations
+
+📋 SETUP_GUIDE.md
+   Purpose: Detailed usage instructions
+   
+   Contents:
+   • Quick start guide
+   • Running experiments step-by-step
+   • Troubleshooting section
+   • Advanced customization
+   • Tips for best results
+
+📝 EXPERIMENT_TEMPLATE.md
+   Purpose: Structured template for documenting experiment results
+   
+   Use this to:
+   • Record answers from each configuration
+   • Rate answer quality
+   • Compare across experiments
+   • Document insights
+   • Then transfer to README.md
+
+═══════════════════════════════════════════════════════════════════════════
+HELPER & TESTING FILES
+═══════════════════════════════════════════════════════════════════════════
+
+🧪 test_setup.py
+   Purpose: Validate system configuration
+   Usage:   python test_setup.py
+   
+   Checks:
+   ✓ Python version (3.8+)
+   ✓ All dependencies installed
+   ✓ Required files exist
+   ✓ API key configured
+   ✓ Document extracted
+   
+   Run this to diagnose any issues!
+
+🔬 run_experiments.py
+   Purpose: Guide for running chunk size experiments
+   Usage:   python run_experiments.py
+   
+   Shows:
+   • Test questions to ask
+   • Parameter configurations
+   • What to document
+
+🧠 generate_deepdive_questions.py
+   Purpose: Deep-dive Q&A about RAG system
+   Usage:   python generate_deepdive_questions.py
+   
+   Contains 5 comprehensive Q&A pairs about:
+   1. Embedding dimensionality (768-D)
+   2. FAISS L2 distance vs cosine similarity
+   3. Chunk overlap benefits
+   4. Bi-encoder vs cross-encoder
+   5. Prompt engineering for RAG
+   
+   Run with --markdown flag to generate README format
+
+═══════════════════════════════════════════════════════════════════════════
+CONFIGURATION FILES
+═══════════════════════════════════════════════════════════════════════════
+
+⚙️  requirements.txt
+   Purpose: Python dependencies list
+   Usage:   pip install -r requirements.txt
+   
+   Packages (12 total):
+   • openai - ChatGPT API
+   • sentence-transformers - Embeddings
+   • faiss-cpu - Vector search
+   • transformers - Cross-encoder
+   • langchain - Text splitting
+   • And 7 more supporting libraries
+
+🔐 .env  ⚠️  ACTION REQUIRED
+   Purpose: Store API keys (not committed to git)
+   
+   **YOU MUST EDIT THIS FILE:**
+   1. Open .env
+   2. Replace "your-api-key-here" with actual key
+   3. Format: OPENAI_API_KEY=sk-...
+   
+   Get API key: https://platform.openai.com/
+
+📋 .env.template
+   Purpose: Template for .env file
+   Use: Reference when creating .env
+
+🚫 .gitignore
+   Purpose: Prevent sensitive files from being committed
+   
+   Ignores:
+   • .env (protects your API key)
+   • venv, .venv (virtual environments)
+   • __pycache__, *.pyc (Python cache)
+
+═══════════════════════════════════════════════════════════════════════════
+PROJECT STATUS
+═══════════════════════════════════════════════════════════════════════════
+
+✅ COMPLETED:
+   ✓ Virtual environment created (.venv)
+   ✓ All 12 dependencies installed
+   ✓ Document extracted (88KB)
+   ✓ Complete RAG pipeline implemented
+   ✓ Retrieval with bi-encoder (SentenceTransformer)
+   ✓ Re-ranking with cross-encoder
+   ✓ ChatGPT integration
+   ✓ Interactive Q&A loop
+   ✓ Comprehensive documentation
+   ✓ 5 deep-dive questions answered
+   ✓ Experiment templates ready
+   ✓ Testing and validation scripts
+
+⚠️  TODO:
+   1. Add your OpenAI API key to .env
+   2. Run RAG_app.py with default parameters
+   3. Ask 3 test questions and record answers
+   4. Run experiments with different chunk sizes:
+      - Large chunks (1000/100)
+      - Small chunks (250/25)
+   5. Document observations in EXPERIMENT_TEMPLATE.md
+   6. Transfer insights to README.md
+   7. Complete analysis sections in README.md
+
+═══════════════════════════════════════════════════════════════════════════
+WORKFLOW
+═══════════════════════════════════════════════════════════════════════════
+
+Step 1: Validate Setup
+   → python test_setup.py
+   
+Step 2: Add API Key
+   → Edit .env file
+   → Add OPENAI_API_KEY=sk-your-actual-key
+
+Step 3: Test System (Default Config)
+   → python RAG_app.py
+   → Ask: "What is artificial intelligence and when was it founded?"
+   → Ask: "How do neural networks work in AI?"
+   → Ask: "What are the ethical concerns related to AI?"
+   → Document answers in EXPERIMENT_TEMPLATE.md
+
+Step 4: Large Chunks Experiment
+   → Edit RAG_app.py lines 34-35:
+      chunk_size = 1000
+      chunk_overlap = 100
+   → python RAG_app.py
+   → Ask same 3 questions
+   → Document answers
+
+Step 5: Small Chunks Experiment
+   → Edit RAG_app.py lines 34-35:
+      chunk_size = 250
+      chunk_overlap = 25
+   → python RAG_app.py
+   → Ask same 3 questions
+   → Document answers
+
+Step 6: Analysis
+   → Compare results across configurations
+   → Fill in analysis sections in EXPERIMENT_TEMPLATE.md
+   → Transfer insights to README.md
+
+Step 7: Final Review
+   → Ensure all README.md sections complete
+   → Check deliverables checklist
+   → Review deep-dive Q&A
+
+═══════════════════════════════════════════════════════════════════════════
+QUICK COMMANDS
+═══════════════════════════════════════════════════════════════════════════
+
+Activate virtual environment:
+   .venv\Scripts\activate
+
+Check setup:
+   python test_setup.py
+
+Extract document:
+   python text_extractor.py
+
+Run RAG system:
+   python RAG_app.py
+
+View experiments guide:
+   python run_experiments.py
+
+View deep-dive Q&A:
+   python generate_deepdive_questions.py
+
+═══════════════════════════════════════════════════════════════════════════
+ARCHITECTURE OVERVIEW
+═══════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                          USER QUERY                                 │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  STEP 1: Bi-Encoder (Sentence-Transformer)                         │
+│  • Model: all-distilroberta-v1 (768 dimensions)                    │
+│  • Encode query → vector                                            │
+│  • Fast: Pre-computed document embeddings                           │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  STEP 2: FAISS Vector Search                                        │
+│  • IndexFlatL2 (L2 distance)                                        │
+│  • Search ~176 document chunks                                      │
+│  • Retrieve top_k = 20 candidates                                   │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  STEP 3: Cross-Encoder Re-Ranking                                   │
+│  • Model: ms-marco-MiniLM-L-6-v2                                    │
+│  • Score each (query, chunk) pair                                   │
+│  • Select top_m = 8 best chunks                                     │
+│  • Deduplication                                                     │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  STEP 4: Context Assembly                                           │
+│  • Join top 8 chunks with "\n\n"                                    │
+│  • Build system + user prompts                                      │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  STEP 5: ChatGPT Answer Generation                                  │
+│  • Model: GPT-4                                                     │
+│  • Temperature: 0.0 (deterministic)                                 │
+│  • Max tokens: 500                                                  │
+└────────────────────────────┬────────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                      FINAL ANSWER TO USER                           │
+└─────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════
+GETTING HELP
+═══════════════════════════════════════════════════════════════════════════
+
+📖 Read the docs:
+   • SETUP_GUIDE.md - Detailed instructions
+   • PROJECT_SUMMARY.md - Complete overview
+   • README.md - Academic documentation
+
+🔍 Diagnose issues:
+   • python test_setup.py - Auto-check setup
+   • Check .env has valid API key
+   • Verify Selected_Document.txt exists
+
+💡 For experiments:
+   • Use EXPERIMENT_TEMPLATE.md to organize results
+   • Compare answer quality across configs
+   • Document insights for README.md
+
+═══════════════════════════════════════════════════════════════════════════
+
+Ready to start? 
+   1. Add API key to .env
+   2. Run: python RAG_app.py
+   3. Ask questions about AI!
+
+═══════════════════════════════════════════════════════════════════════════

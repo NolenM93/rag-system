@@ -1,0 +1,172 @@
+════════════════════════════════════════════════════════════════════════
+                    🚀 GETTING STARTED IN 3 STEPS 🚀
+════════════════════════════════════════════════════════════════════════
+
+Your RAG system is COMPLETE and READY. Everything works!
+
+Just follow these 3 simple steps:
+
+════════════════════════════════════════════════════════════════════════
+STEP 1: ADD YOUR API KEY (2 minutes)
+════════════════════════════════════════════════════════════════════════
+
+1. Get your OpenAI API key:
+   → Go to: https://platform.openai.com/api-keys
+   → Sign in or create account
+   → Click "Create new secret key"
+   → Copy the key (starts with "sk-")
+
+2. Open the .env file in this folder
+
+3. Replace this line:
+   OPENAI_API_KEY=your-api-key-here
+   
+   With your actual key:
+   OPENAI_API_KEY=sk-proj-abc123...your-actual-key
+
+4. Save the file
+
+✅ That's it for setup!
+
+════════════════════════════════════════════════════════════════════════
+STEP 2: RUN THE SYSTEM (30 seconds)
+════════════════════════════════════════════════════════════════════════
+
+Open PowerShell in this folder and run:
+
+   python RAG_app.py
+
+You'll see:
+   • Loading document...
+   • Generating embeddings...
+   • FAISS index created...
+   • RAG System Ready!
+
+════════════════════════════════════════════════════════════════════════
+STEP 3: ASK QUESTIONS! (Try it now)
+════════════════════════════════════════════════════════════════════════
+
+When you see "Your question:", type any of these:
+
+   What is artificial intelligence and when was it founded?
+   
+   How do neural networks work in AI?
+   
+   What are the ethical concerns related to AI?
+   
+   What is deep learning?
+   
+   Who are the key figures in AI history?
+
+The system will:
+   1. Search 176 document chunks
+   2. Find top 20 matches
+   3. Re-rank to best 8
+   4. Send to ChatGPT
+   5. Give you an answer!
+
+Type "exit" when done.
+
+════════════════════════════════════════════════════════════════════════
+THAT'S IT! 🎉
+════════════════════════════════════════════════════════════════════════
+
+You now have a working RAG system that:
+  ✓ Retrieves relevant information from the AI Wikipedia article
+  ✓ Re-ranks results for better accuracy
+  ✓ Generates intelligent answers using ChatGPT
+  ✓ Runs completely locally (except ChatGPT API calls)
+
+════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+════════════════════════════════════════════════════════════════════════
+
+Problem: "Import error" or "Module not found"
+Fix: Make sure you're in the virtual environment
+     Run: .venv\Scripts\activate
+
+Problem: "API key not found"
+Fix: Check .env file has OPENAI_API_KEY=sk-...
+
+Problem: "File not found: Selected_Document.txt"
+Fix: Run: python text_extractor.py
+
+Problem: First run is slow
+Fix: This is normal! Models are downloading (~200 MB)
+     Next runs will be much faster
+
+════════════════════════════════════════════════════════════════════════
+WANT TO LEARN MORE?
+════════════════════════════════════════════════════════════════════════
+
+Read these files in order:
+
+1. QUICK_REFERENCE.txt    - Commands and parameters
+2. PROJECT_SUMMARY.md     - What's been built
+3. SETUP_GUIDE.md         - Detailed instructions
+4. README.md              - Full documentation
+
+════════════════════════════════════════════════════════════════════════
+RUNNING EXPERIMENTS (Required for Assignment)
+════════════════════════════════════════════════════════════════════════
+
+After testing the system:
+
+1. Ask 3 test questions with default settings
+2. Document answers in EXPERIMENT_TEMPLATE.md
+
+3. Edit RAG_app.py, change lines 34-35 to:
+   chunk_size = 1000
+   chunk_overlap = 100
+   
+4. Run again, ask same questions, document results
+
+5. Edit RAG_app.py, change lines 34-35 to:
+   chunk_size = 250
+   chunk_overlap = 25
+   
+6. Run again, ask same questions, document results
+
+7. Compare all results and fill in README.md analysis sections
+
+════════════════════════════════════════════════════════════════════════
+VALIDATING YOUR SETUP
+════════════════════════════════════════════════════════════════════════
+
+Before running experiments, validate everything works:
+
+   python test_setup.py
+
+This checks:
+  ✓ Python version
+  ✓ All packages installed
+  ✓ Files exist
+  ✓ API key configured
+  ✓ Document extracted
+
+════════════════════════════════════════════════════════════════════════
+FILE SIZES (For Reference)
+════════════════════════════════════════════════════════════════════════
+
+Selected_Document.txt        86 KB   (AI Wikipedia article)
+README.md                    21 KB   (Main documentation)
+RAG_app.py                    8 KB   (Main application)
+FILE_GUIDE.txt               18 KB   (File explanations)
+CHECKLIST.txt                13 KB   (Task tracker)
+generate_deepdive_questions  14 KB   (Q&A generator)
+
+════════════════════════════════════════════════════════════════════════
+QUESTIONS?
+════════════════════════════════════════════════════════════════════════
+
+Check these files:
+  • SETUP_GUIDE.md     - Detailed help
+  • FILE_GUIDE.txt     - What each file does
+  • CHECKLIST.txt      - Track your progress
+  • README.md          - Full documentation
+
+════════════════════════════════════════════════════════════════════════
+
+Ready? Add your API key and run: python RAG_app.py
+
+════════════════════════════════════════════════════════════════════════

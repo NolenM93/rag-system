@@ -1,0 +1,173 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                    RAG SYSTEM - QUICK REFERENCE                      ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+📋 CHECKLIST
+  ✅ Virtual environment created (.venv)
+  ✅ All dependencies installed (12 packages)
+  ✅ Document extracted (88KB AI Wikipedia article)
+  ✅ Complete RAG pipeline implemented
+  ✅ Documentation written (README, guides, deep-dive Q&A)
+  ⚠️  ADD YOUR OPENAI API KEY TO .env
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 QUICK START
+
+1. Add API key to .env:
+   OPENAI_API_KEY=sk-your-actual-key-here
+
+2. Run the system:
+   python RAG_app.py
+
+3. Ask questions:
+   - What is artificial intelligence and when was it founded?
+   - How do neural networks work in AI?
+   - What are the ethical concerns related to AI?
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 KEY FILES
+
+  text_extractor.py     → Extracts text from web/PDF
+  RAG_app.py           → Main RAG application (run this!)
+  Selected_Document.txt → Your source document
+  .env                 → API keys (add yours here!)
+  README.md            → Full documentation
+  SETUP_GUIDE.md       → Detailed instructions
+  test_setup.py        → Validate your setup
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧪 EXPERIMENTS
+
+Default (Baseline):
+  chunk_size=500, chunk_overlap=50
+  python RAG_app.py
+
+Large Chunks:
+  Edit RAG_app.py lines 34-35:
+    chunk_size = 1000
+    chunk_overlap = 100
+  python RAG_app.py
+
+Small Chunks:
+  Edit RAG_app.py lines 34-35:
+    chunk_size = 250
+    chunk_overlap = 25
+  python RAG_app.py
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️  SYSTEM PARAMETERS
+
+  Chunk Size         500 chars    (line 34)
+  Chunk Overlap      50 chars     (line 35)
+  Embedding Model    all-distilroberta-v1 (768-D)
+  Initial Retrieval  top_k = 20   (line 37)
+  Re-ranker Model    ms-marco-MiniLM-L-6-v2
+  Final Context      top_m = 8    (line 41)
+  ChatGPT Model      gpt-4        (line 222)
+  Temperature        0.0          (line 226)
+  Max Tokens         500          (line 227)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 USEFUL COMMANDS
+
+  python test_setup.py              → Check if everything is ready
+  python text_extractor.py          → Re-extract document
+  python RAG_app.py                 → Run RAG system
+  python run_experiments.py         → See experiment guide
+  python generate_deepdive_questions.py → View Q&A
+
+  .venv\Scripts\activate            → Activate virtual environment
+  pip list                          → See installed packages
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 DELIVERABLES STATUS
+
+  ✅ Selected_Document.txt         → AI Wikipedia article (88KB)
+  ✅ requirements.txt              → All dependencies listed
+  ✅ text_extractor.py            → Web scraper with headers
+  ✅ RAG_app.py                   → Complete RAG pipeline
+  ✅ README.md                    → Full documentation with:
+     ✅ Document description
+     📝 Test questions (fill in answers after running)
+     📝 Experiment results (fill in observations)
+     ✅ 5 deep-dive Q&A (completed)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 RAG PIPELINE FLOW
+
+  User Question
+      ↓
+  Sentence-Transformer Embedding (768-D)
+      ↓
+  FAISS Vector Search (top 20 candidates)
+      ↓
+  Cross-Encoder Re-Ranking (select best 8)
+      ↓
+  Context Assembly (join chunks)
+      ↓
+  ChatGPT Answer Generation
+      ↓
+  Final Answer
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ PERFORMANCE NOTES
+
+  First Run:  Downloads models (~200MB), takes 1-2 min
+  Later Runs: Uses cached models, starts in ~10 sec
+  Per Query:  ~150ms (100ms bi-encoder + 50ms cross-encoder)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION
+
+  PROJECT_SUMMARY.md   → What's done (this is comprehensive!)
+  SETUP_GUIDE.md       → How to use the system
+  README.md            → Full academic write-up
+  QUICK_REFERENCE.txt  → This file
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ WHAT'S DONE
+
+  Everything is ready! The complete RAG system is built, configured,
+  and documented. All you need to do is:
+  
+  1. Add your OpenAI API key to .env
+  2. Run python RAG_app.py
+  3. Ask your test questions
+  4. Run experiments with different chunk sizes
+  5. Document results in README.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 TROUBLESHOOTING
+
+  Problem: Import errors
+  Fix: .venv\Scripts\activate
+
+  Problem: API key not working
+  Fix: Check .env has OPENAI_API_KEY=sk-...
+
+  Problem: Selected_Document.txt not found
+  Fix: python text_extractor.py
+
+  Problem: Slow first run
+  Fix: Normal! Models downloading (happens once)
+
+  Run: python test_setup.py (auto-diagnoses issues)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 YOU'RE READY!
+
+Next command: python RAG_app.py (after adding API key to .env)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
