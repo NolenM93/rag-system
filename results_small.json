@@ -1,0 +1,17 @@
+[
+  {
+    "question": "What is artificial intelligence and when was it founded?",
+    "answer": "Artificial intelligence (AI) is the capability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making. It was founded as an academic discipline in 1956.",
+    "time_seconds": 4.84
+  },
+  {
+    "question": "How do neural networks work in AI?",
+    "answer": "An artificial neural network in AI is based on a collection of nodes, also known as artificial neurons, which loosely model the neurons in a biological brain. It is trained to recognise patterns and once trained, it can recognise those patterns in fresh data. Learning algorithms for neural networks use local search to choose the weights that will get the right output for each input during training. The most common training technique is the backpropagation algorithm. Neural networks learn to model complex relationships between inputs and outputs and find patterns in data. In theory, a neural network can learn any function.",
+    "time_seconds": 6.77
+  },
+  {
+    "question": "What are the ethical concerns related to AI?",
+    "answer": "Ethical concerns related to AI include its long-term effects and potential existential risks. There are also concerns about unintended consequences and risks, especially when AI training processes do not factor in ethics and bias. The wellbeing of people and communities affected by these technologies is another ethical consideration. Some AI pioneers have expressed concerns about existential risk from AI. There are also discussions about AI sentience and the potential for it to be denied, which some argue could be a moral blind spot.",
+    "time_seconds": 2.45
+  }
+]

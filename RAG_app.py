@@ -4,13 +4,15 @@ RAG_app.py - Retrieval-Augmented Generation system with re-ranking
 
 import logging
 import warnings
-import transformers.logging as hf_logging
 from dotenv import load_dotenv
 import os
 import openai
 import numpy as np
 from sentence_transformers import SentenceTransformer, CrossEncoder
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+try:
+    from langchain.text_splitter import RecursiveCharacterTextSplitter
+except ImportError:
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
 import faiss
 
 
@@ -18,7 +20,11 @@ import faiss
 # Step 3.1: Suppress Noisy Logs
 # ============================================================================
 logging.getLogger('langchain.text_splitter').setLevel(logging.ERROR)
-hf_logging.set_verbosity_error()
+try:
+    import transformers
+    transformers.logging.set_verbosity_error()
+except:
+    pass
 warnings.filterwarnings('ignore')
 
 
@@ -32,8 +38,8 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 # ============================================================================
 # Step 3.3: Parameters
 # ============================================================================
-chunk_size = 500
-chunk_overlap = 50
+chunk_size = 250
+chunk_overlap = 25
 model_name = "sentence-transformers/all-distilroberta-v1"
 top_k = 20
 
@@ -212,7 +218,10 @@ Answer:"""
     
     # Step 5: Call OpenAI ChatGPT API
     try:
-        resp = openai.ChatCompletion.create(
+        from openai import OpenAI
+        client = OpenAI(api_key=openai.api_key)
+        
+        resp = client.chat.completions.create(
             model="gpt-4",
             messages=[
                 {"role": "system", "content": system_prompt},

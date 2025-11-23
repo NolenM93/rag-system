@@ -1,0 +1,17 @@
+[
+  {
+    "question": "What is artificial intelligence and when was it founded?",
+    "answer": "Artificial intelligence (AI) is the capability of computational systems to perform tasks typically associated with human intelligence, such as learning, reasoning, problem-solving, perception, and decision-making. It is a field of research in computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximize their chances of achieving defined goals. AI was founded as an academic discipline in 1956.",
+    "time_seconds": 4.62
+  },
+  {
+    "question": "How do neural networks work in AI?",
+    "answer": "An artificial neural network in AI is based on a collection of nodes, also known as artificial neurons, which loosely model the neurons in a biological brain. It is trained to recognize patterns and once trained, it can recognize those patterns in fresh data. There is an input, at least one hidden layer of nodes, and an output. Each node applies a function and once the weight crosses its specified threshold, the data is transmitted to the next layer. Learning algorithms for neural networks use local search to choose the weights that will get the right output for each input during training. The most common training technique is the backpropagation algorithm. Neural networks learn to model complex relationships between inputs and outputs and find patterns in data. In theory, a neural network can learn any function.",
+    "time_seconds": 4.79
+  },
+  {
+    "question": "What are the ethical concerns related to AI?",
+    "answer": "The ethical concerns related to AI include the potential for AI to enable authoritarian leaders to manipulate their electorates on a large scale, the philosophical debates about the nature of intelligence and whether machines can be conscious, and the associated ethical implications. There are also concerns about the social and ethical implications at all stages of AI system design, development, and implementation. Other concerns include the risk from eventual superintelligent AI, unintended consequences and risks from widespread use of AI, and the potential for large-scale suffering if sentient AI is created and carelessly exploited. There are also debates about whether an advanced AI is sentient and if so, whether it should be entitled to certain rights or welfare protection measures.",
+    "time_seconds": 5.23
+  }
+]
